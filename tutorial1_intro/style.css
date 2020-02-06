@@ -12,6 +12,22 @@ td {
   background-color: paleturquoise;
 }
 
-.above-average {
+.queens {
   background-color: palevioletred;
+}
+
+.manhattan {
+  background-color: palegreen;
+}
+
+.bronx {
+  background-color: palegoldenrod;
+}
+
+.brooklyn {
+  background-color: lightslategray;
+}
+
+.staten-island {
+  background-color: lightsalmon;
 }

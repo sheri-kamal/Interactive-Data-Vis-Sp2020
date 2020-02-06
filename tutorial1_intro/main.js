@@ -33,11 +33,9 @@ d3.csv("../311 Data - Water Quality and Illness.csv").then(function(data) {
     .selectAll("td")
     .data(d => Object.values(d))
     .join("td")
-    .attr("class", (d, i) => {
-      if((i = 2 && d > 21)||(i = 3 && d > 1762)) {
-        return "above-average"
-      }
-    })
+    .attr("class", d => d == "Queens" ? 'queens' : 
+    d == "Manhattan" ? 'manhattan' : d == "Bronx" ? 'bronx' : 
+    d == "Brooklyn" ? 'brooklyn' : d == "Staten Island" ? 'staten-island' : null)
     .text(d => d);
 });
 
