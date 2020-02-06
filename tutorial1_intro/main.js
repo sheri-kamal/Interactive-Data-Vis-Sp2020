@@ -1,5 +1,10 @@
-d3.csv("../../tutorial1_intro/311 Data - Water Quality and Illness.csv").then(data => {
-  console.log("data", data);
+d3.csv("../../tutorial1_intro/311 Data - Water Quality and Illness.csv").then(function(data) {
+  data.forEach(function(d) {
+    d.Year = +d.Year;
+    d["Waterborne Illness"] = +d["Waterborne Illness"];
+    d["Water Quality"] = +d["Water Quality"];
+  });
+  console.log(data[0]);
   
   const table = d3.select("#d3-table");
   
@@ -14,7 +19,7 @@ d3.csv("../../tutorial1_intro/311 Data - Water Quality and Illness.csv").then(da
     .append("tr")
     .selectAll("th")
     .data(data.columns)
-    .join("th")
+    .join("td")
     .text(d => d);
   
   const rows = table
