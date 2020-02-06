@@ -1,28 +1,14 @@
 body {
-  font-family: Arial, sans-serif;
-  padding: 1em;
-}
-
-section {
-  padding: 1em 0;
-}
-
-table {
-  border-collapse: collapse;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0.8em;
 }
 
 th {
-  padding: 0 0.5em;
-}
-
-tr {
-  border-bottom: solid 1px #d3d3d3;
-  line-height: 1.75;
+  padding: 5px;
 }
 
 td {
-  text-align: right;
-  padding: 0 0.5em;
+  text-align: center;
   background-color: paleturquoise;
 }
 
