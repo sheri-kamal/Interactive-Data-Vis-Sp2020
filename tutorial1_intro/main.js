@@ -8,9 +8,7 @@ d3.csv("../311 Data - Water Quality and Illness.csv").then(function(data) {
   console.log(data[0]);
   
   const table = d3.select("#d3-table");
-  
   const thead = table.append("thead");
-
   const tbody = table.append("tbody");
   
   thead
