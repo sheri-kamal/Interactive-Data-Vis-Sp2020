@@ -1,4 +1,4 @@
-d3.csv("../../tutorial1_intro/311 Data - Water Quality and Illness.csv").then(function(data) {
+d3.csv("../tutorial1_intro/311 Data - Water Quality and Illness.csv").then(function(data) {
   data.forEach(function(d) {
     d.Year = +d.Year;
     d["Waterborne Illness"] = +d["Waterborne Illness"];
