@@ -27,15 +27,38 @@ d3.csv("../tutorial1_intro/311 Data - Water Quality and Illness.csv").then(funct
   const rows = tbody
     .selectAll("tr")
     .data(data)
-    .join("tr");
+    .join("tr")
+    .attr("class", d => {
+      console.log(d);
+      let tag;
+      if (d.Borough == "Queens") {
+        tag = "queens";
+      }
+
+      if (d.Borough == "Manhattan") {
+        tag = "manhattan";
+      }
+
+      if (d.Borough == "Bronx") {
+        tag = "bronx";
+      }
+      
+      if (d.Borough == "Brooklyn") {
+        tag = "brooklyn";
+      }
+      
+      if (d.Borough == "Staten Island") {
+        tag = "staten-island";
+      }
+
+      return tag;
+    });
   
   rows
     .selectAll("td")
     .data(d => Object.values(d))
     .join("td")
-    .attr("class", d => d == "Queens" ? 'queens' : 
-    d == "Manhattan" ? 'manhattan' : d == "Bronx" ? 'bronx' : 
-    d == "Brooklyn" ? 'brooklyn' : d == "Staten Island" ? 'staten-island' : null)
+    .attr("class", d => d == "Queens" ? 'queens' : d == "Manhattan" ? 'manhattan' : d == "Bronx" ? 'bronx' : d == "Brooklyn" ? 'brooklyn' : d == "Staten Island" ? 'staten-island' : null)
     .text(d => d);
 });
 
