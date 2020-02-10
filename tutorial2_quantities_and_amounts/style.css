@@ -1,0 +1,17 @@
+h2 {
+    text-align: center;
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    padding: 1em 3em;
+  }
+  
+  .label {
+    fill: white;
+    text-anchor: middle;
+  }
+  
+  .axis {
+    font-size: 16px;
+  }
