@@ -6,22 +6,22 @@ d3.csv("../tutorial2_quantities_and_amounts/311 Data - Air Quality.csv", d3.auto
         paddingInner = 0.2,
         margin = { top: 20, bottom: 40, left: 40, right: 40 };
 
-    const xScale = d3
-        .scaleBand()
-        .domain(data.map(d => d.Borough))
-        .range([margin.left, width - margin.right])
-        .paddingInner(paddingInner);
-
-    const yScale = d3
+        const xScale = d3
         .scaleLinear()
         .domain([0, d3.max(data, d => d.Complaints)])
-        .range([height - margin.bottom, margin.top]);
+        .range([width - margin.left, margin.right]);
+
+    const yScale = d3
+        .scaleBand()
+        .domain(data.map(d => d.Borough))
+        .range([height - margin.top, margin.bottom])
+        .paddingInner(paddingInner);
     
     const colorScale = d3
         .scaleOrdinal(d3.schemeTableau10)
         .domain(data.map(d => d.Borough));
 
-    const xAxis = d3.axisBottom(xScale).ticks(data.length);
+    const yAxis = d3.axisLeft(yScale).ticks(data.length);
 
     const svg = d3
         .select("#d3-container")
@@ -33,10 +33,11 @@ d3.csv("../tutorial2_quantities_and_amounts/311 Data - Air Quality.csv", d3.auto
         .selectAll("rect")
         .data(data)
         .join("rect")
-        .attr("y", d => yScale(d.Complaints))
-        .attr("x", d => xScale(d.Borough))
-        .attr("width", xScale.bandwidth())
-        .attr("height", d => height - margin.bottom - yScale(d.Complaints))
+        .attr("x", 0, d => xScale(d.Complaints))
+        .attr("y", d => yScale(d.Borough))
+        .attr("height", yScale.bandwidth())
+        .attr("width", d => width - margin.left - xScale(d.Complaints))
+        .attr("transform", `translate(130, ${height - margin.bottom, margin.top})`)
         .attr("fill", d => colorScale(d.Borough));
 
     const text = svg
@@ -44,16 +45,18 @@ d3.csv("../tutorial2_quantities_and_amounts/311 Data - Air Quality.csv", d3.auto
         .data(data)
         .join("text")
         .attr("class", "label")
-        .attr("x", d => xScale(d.Borough) + (xScale.bandwidth() / 2))
-        .attr("y", d => yScale(d.Complaints))
+        .attr("y", d => yScale(d.Borough) + yScale.bandwidth())
+        .attr("x", 0, d => xScale(d.Complaints))
         .text(d => d.Complaints)
-        .attr("dy", "1.25em");
+        .attr("dx","160");
 
     svg
         .append("g")
         .attr("class", "axis")
-        .attr("transform", `translate(0, ${height - margin.bottom})`)
-        .call(xAxis);
+        .attr("transform", `translate(120, ${height - margin.bottom, margin.top})`)
+        .call(yAxis)
+        .style("text-anchor", "left")
+        .text(d.Borough);
 });
 
 d3.select("body")
