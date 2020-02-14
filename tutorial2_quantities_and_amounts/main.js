@@ -6,7 +6,7 @@ d3.csv("../tutorial2_quantities_and_amounts/311 Data - Air Quality.csv", d3.auto
         paddingInner = 0.2,
         margin = { top: 20, bottom: 40, left: 40, right: 40 };
 
-        const xScale = d3
+    const xScale = d3
         .scaleLinear()
         .domain([0, d3.max(data, d => d.Complaints)])
         .range([width - margin.left, margin.right]);
