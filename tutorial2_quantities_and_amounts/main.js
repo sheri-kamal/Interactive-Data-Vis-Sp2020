@@ -2,7 +2,7 @@ d3.csv("../tutorial2_quantities_and_amounts/311 Data - Air Quality.csv", d3.auto
     console.log(data);
 
     const width = window.innerWidth * 0.9,
-        height = window.innerHeight / 1.5,
+        height = window.innerHeight / 2,
         paddingInner = 0.2,
         margin = { top: 20, bottom: 40, left: 40, right: 40 };
 
