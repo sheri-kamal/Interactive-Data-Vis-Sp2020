@@ -1,0 +1,18 @@
+body {
+    font-family: Verdana, sans-serif;
+    padding: 1em 3em;
+}
+  
+.dot {
+    cursor: pointer;
+}
+  
+.dot:hover {
+    fill: black;
+}
+  
+.axis-label {
+    font-size: 14px;
+    fill: black;
+    text-anchor: middle;
+}
