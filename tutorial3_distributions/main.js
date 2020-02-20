@@ -143,7 +143,7 @@ function draw() {
           exit.call(exit =>
             exit
               .transition()
-              .delay((d,i)=>i*.5)
+              .delay((d,i) => i*.5)
               .duration(500)
               .attr("cy",height-margin.bottom)
               .remove() // + HANDLE EXIT SELECTION
