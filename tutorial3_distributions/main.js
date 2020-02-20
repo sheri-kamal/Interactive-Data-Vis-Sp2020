@@ -147,3 +147,11 @@ function draw() {
         )
     );
 }
+
+d3.select("body")
+  .append("div")
+  .attr("class", "source");
+d3.select(".source")
+  .append("a")
+  .attr("href", "https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9/data")
+  .text("Source: 311 Service Requests from 2010 to Present");
