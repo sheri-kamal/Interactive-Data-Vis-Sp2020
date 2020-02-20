@@ -10,7 +10,6 @@ let svg;
 let xScale;
 let yScale;
 
-
 /* APPLICATION STATE */
 let state = {
   data: [],
