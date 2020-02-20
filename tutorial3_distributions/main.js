@@ -98,8 +98,7 @@ function init() {
 function draw() {
   let filteredData = state.data;
   // + FILTER DATA BASED ON STATE
-  if (state.selectedborough
- !== "All") {
+  if (state.selectedborough !== "All") {
     filteredData = state.data.filter(d => d.Borough === state.selectedborough);
   }
 
