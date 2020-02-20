@@ -142,7 +142,10 @@ function draw() {
         exit =>
           exit.call(exit =>
             exit
-              .attr("cx", width)
+              .transition()
+              .delay((d,i)=>i*.5)
+              .duration(500)
+              .attr("cy",height-margin.bottom)
               .remove() // + HANDLE EXIT SELECTION
         )
     );
