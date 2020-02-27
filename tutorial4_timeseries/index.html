@@ -1,13 +1,17 @@
 <!DOCTYPE html>
   <head>
     <meta charset="utf-8">
-    <title>Interactive Data Visualization Tutorial</title>
+    <title>Interactive Data Visualization Tutorial 4</title>
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    Welcome to Interactive Data Visualization Tutorials
-    <label for="dropdown">Filter Selection</label>
+    <header>
+      <h1>Interactive Data Visualization Tutorial #4 - Timeseries with D3.js</h1>
+      <h2>GDP per Capita Yearly Growth from 1801 - 2019</h2>
+    </header>
+    <label for="dropdown">Select a Country:</label>
     <select id="dropdown" name="dropdown"></select>
+    <div id="d3-container"> </div>
     <script src="../lib/d3.js"></script>
     <script src="main.js"></script>
   </body>
