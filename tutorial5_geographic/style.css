@@ -1,0 +1,13 @@
+body {
+    font-family: Verdana, sans-serif;
+    padding: 1em 3em;
+}
+  
+#tooltip {
+    display: block;
+    height: 50px;
+}
+  
+path.state {
+    stroke: black;
+}
