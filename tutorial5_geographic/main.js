@@ -25,7 +25,7 @@ let state = {
  * Using a Promise.all([]), we can load more than one dataset at a time
  * */
 Promise.all([
-  d3.json("../../data/usState.json"),
+  d3.json("../tutorial5_geographic/usState.json"),
   d3.csv("../tutorial5_geographic/Mother Jones - Mass Shootings Data, 1982 - 2020.csv", d3.autoType),
 ]).then(([geojson, shootings]) => {
   state.geojson = geojson;
