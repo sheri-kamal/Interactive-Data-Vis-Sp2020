@@ -63,7 +63,7 @@ function init() {
     .selectAll("circle")
     .data(state.shootings, d => d)
     .join("circle")
-    .attr("r", 5)
+    .attr("r", 4)
     .attr("fill", "red")
     .attr("cx", d => projection([d["longitude"],d["latitude"]])[0])
     .attr("cy", d => projection([d["longitude"],d["latitude"]])[1])
