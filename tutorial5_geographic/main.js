@@ -13,10 +13,10 @@ let state = {
   geojson: null,
   shootings: null,
   hover: {
-    location: null,
-    date: null,
-    case: null,
-    victims: null,
+    Location: null,
+    Date: null,
+    Case: null,
+    Victims: null,
   },// + SET UP STATE
 };
 
@@ -57,10 +57,7 @@ function init() {
     .attr("d", path)
     .attr("class", "state")
     .attr("fill", "transparent")
-    .on("mouseover", d => {
-      state.hover["state"] = d.properties.NAME;
-      draw();
-    })
+    
 
   svg
     .selectAll("circle")
@@ -71,10 +68,10 @@ function init() {
     .attr("cx", d => projection([d["longitude"],d["latitude"]])[0])
     .attr("cy", d => projection([d["longitude"],d["latitude"]])[1])
     .on('mouseover',d=>{
-      state.hover['location']=d['location'];
-      state.hover['date']=d['date'];
-      state.hover['case']=d['case'];
-      state.hover['victims']=d['total_victims'];
+      state.hover['Location']=d['location'];
+      state.hover['Date']=d['date'];
+      state.hover['Case']=d['case'];
+      state.hover['Victims']=d['total_victims'];
       draw();
     });
     
