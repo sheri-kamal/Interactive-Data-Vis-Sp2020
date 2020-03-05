@@ -58,7 +58,6 @@ function init() {
     .attr("class", "state")
     .attr("fill", "transparent")
     
-
   svg
     .selectAll("circle")
     .data(state.shootings, d => d)
