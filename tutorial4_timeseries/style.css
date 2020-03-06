@@ -3,14 +3,12 @@ body {
     padding: 1em 3em;
 }
   
-.dot {
-    cursor: pointer;
-    color: steelblue;
-    opacity: 0.5;
+.positive {
+    color: green;
 }
   
-.dot:hover {
-    fill: black;
+.negative {
+    color: red;
 }
   
 .axis-label {
