@@ -13,10 +13,10 @@ let state = {
   geojson: null,
   shootings: null,
   hover: {
-    Location: null,
-    Date: null,
     Case: null,
+    Date: null,
     Victims: null,
+    Location: null,
   },// + SET UP STATE
 };
 
