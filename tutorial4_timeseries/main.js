@@ -13,7 +13,7 @@ let yAxis;
 /* APPLICATION STATE */
 let state = {
   data: [],
-  selectedCountry: 'Afghanistan', // + YOUR FILTER SELECTION
+  selectedCountry: null, // + YOUR FILTER SELECTION
 };
 
 /* LOAD DATA */
@@ -62,7 +62,7 @@ function init() {
     .attr("value", d => d)
     .text(d => d);
 
-  selectElement.property("value", "Afghanistan");
+  selectElement.property("value", 'Afghanistan');
 
   // + CREATE SVG ELEMENT
   svg = d3

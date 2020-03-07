@@ -3,16 +3,12 @@ body {
     padding: 1em 3em;
 }
   
-.positive {
-    color: green;
-}
-  
-.negative {
-    color: red;
-}
-  
 .axis-label {
     font-size: 14px;
     fill: black;
     text-anchor: middle;
+}
+
+.trend {
+    fill: aquamarine
 }
