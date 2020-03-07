@@ -44,7 +44,7 @@ function init() {
   
     // + AXES
   const xAxis = d3.axisBottom(xScale);
-  yAxis = d3.axisLeft(yScale)
+  yAxis = d3.axisLeft(yScale);
   
   // + UI ELEMENT SETUP
   const selectElement = d3.select("#dropdown").on("change", function() {
@@ -97,7 +97,7 @@ function init() {
     .text("GDP/Capita, Yearly Growth");
 
   draw(); // calls the draw function
-}
+};
 
 /* DRAW FUNCTION */
 // we call this everytime there is an update to the data/state
@@ -106,7 +106,7 @@ function draw() {
   let filteredData;
   if (state.selectedCountry !== null) {
     filteredData = state.data.filter(d => d.country === state.selectedCountry);
-  }
+  };
   
   // + UPDATE SCALE(S), if needed
   yScale.domain([d3.min(filteredData, d => d.gdp), d3.max(filteredData, d => d.gdp)]);
@@ -143,7 +143,7 @@ function draw() {
         .attr("opacity", 1)
         .attr("d", areaFunc(d))
     );
-}
+};
 
 d3.select("body")
   .append("div")
