@@ -13,7 +13,7 @@ let yAxis;
 /* APPLICATION STATE */
 let state = {
   data: [],
-  selectedCountry: null, // + YOUR FILTER SELECTION
+  selectedCountry: 'Afghanistan', // + YOUR FILTER SELECTION
 };
 
 /* LOAD DATA */
@@ -41,11 +41,12 @@ function init() {
     .scaleLinear()
     .domain([d3.min(state.data, d => d.gdp), d3.max(state.data, d => d.gdp)])
     .range([height - margin.bottom, margin.top]);
-  // + AXES
+  
+    // + AXES
   const xAxis = d3.axisBottom(xScale);
   yAxis = d3.axisLeft(yScale)
+  
   // + UI ELEMENT SETUP
-
   const selectElement = d3.select("#dropdown").on("change", function() {
     // `this` === the selectElement
     // 'this.value' holds the dropdown value a user just selected
@@ -62,14 +63,13 @@ function init() {
     .attr("value", d => d)
     .text(d => d);
 
-  selectElement.property("value", 'Afghanistan');
-
   // + CREATE SVG ELEMENT
   svg = d3
     .select("#d3-container")
     .append("svg")
     .attr("width", width)
     .attr("height", height);
+  
   // + CALL AXES
   // add the xAxis
   svg
@@ -107,6 +107,7 @@ function draw() {
   if (state.selectedCountry !== null) {
     filteredData = state.data.filter(d => d.country === state.selectedCountry);
   }
+  
   // + UPDATE SCALE(S), if needed
   yScale.domain([d3.min(filteredData, d => d.gdp), d3.max(filteredData, d => d.gdp)]);
 
@@ -115,7 +116,8 @@ function draw() {
     .transition()
     .duration(1000)
     .call(yAxis.scale(yScale));
-  // + DRAW LINE AND AREA
+  
+    // + DRAW LINE AND AREA
   const areaFunc = svg
     .area()
     .x(d=>xScale(d.year))
