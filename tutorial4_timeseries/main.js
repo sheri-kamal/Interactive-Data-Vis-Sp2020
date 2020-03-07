@@ -50,7 +50,7 @@ function init() {
     // `this` === the selectElement
     // 'this.value' holds the dropdown value a user just selected
     state.selection = this.value; // + UPDATE STATE WITH YOUR SELECTED VALUE
-    console.log("new country is", this.value);
+    console.log("New Country is", this.value);
     draw(); // re-draw the graph based on this new selection
   });
 
@@ -61,6 +61,8 @@ function init() {
     .join("option")
     .attr("value", d => d)
     .text(d => d);
+
+  selectElement.property("value", "Afghanistan");
 
   // + CREATE SVG ELEMENT
   svg = d3
@@ -107,68 +109,28 @@ function draw() {
   }
   // + UPDATE SCALE(S), if needed
   yScale.domain([d3.min(filteredData, d => d.gdp), d3.max(filteredData, d => d.gdp)]);
+
   // + UPDATE AXIS/AXES, if needed
   d3.select("g.y-axis")
     .transition()
     .duration(1000)
     .call(yAxis.scale(yScale));
-  // + DRAW CIRCLES, if you decide to
-  // const dot = svg
-  //   .selectAll("circle")
-  //   .data(filteredData, d => d.name)
-  //   .join(
-  //     enter => enter, // + HANDLE ENTER SELECTION
-  //     update => update, // + HANDLE UPDATE SELECTION
-  //     exit => exit // + HANDLE EXIT SELECTION
-  //   );
-  //
   // + DRAW LINE AND AREA
   const areaFunc = svg
     .area()
-    .x(d => xScale(d.year))
-    .y0(height-margin.bottom)
-    .y1(d => yScale(d.gdp));
+    .x(d=>xScale(d.year))
+    .y0(yScale(0))
+    .y1(d=>yScale(d.gdp));
   
   const area = svg
     .append("path.trend")
-    .data([filteredData], d => d.country)
-    .join(
-      enter =>
-        enter
-          .append("path")
-          .attr("class", "trend")
-          .attr("opacity", 0)
-          .attr("fill", d => {
-            if (d.gdp > 0) return "green";
-            else return "red";
-          }), 
-      update => update, 
-      exit => exit.remove()
-    )
-    .call(selection =>
-      selection
-        .transition() 
-        .duration(1000)
-        .attr("opacity", 1)
-        .attr("d", areaFunc)
-    );
-  /*
-  const lineFunc = svg
-    .line()
-    .x(d => d.year)
-    .y(d => d.gdp)
-    .curve(d3.curveMonotoneX);
-  
-  const line = svg
-    .append("path.line")
     .data([filteredData])
     .join(
       enter =>
         enter
           .append("path")
-          .attr("class", "line")
-          .attr("opacity", 0)
-          .attr("fill", "steelblue"), 
+          .attr("class", "trend")
+          .attr("opacity", 0), 
       update => update, 
       exit => exit.remove()
     )
@@ -177,8 +139,8 @@ function draw() {
         .transition() 
         .duration(1000)
         .attr("opacity", 1)
-        .attr("d", lineFunc(d))
-    );*/
+        .attr("d", areaFunc(d))
+    );
 }
 
 d3.select("body")
