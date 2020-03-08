@@ -50,7 +50,7 @@ function init() {
   const selectElement = d3.select("#dropdown").on("change", function() {
     // `this` === the selectElement
     // 'this.value' holds the dropdown value a user just selected
-    state.selection = this.value; // + UPDATE STATE WITH YOUR SELECTED VALUE
+    state.selectedCountry = this.value; // + UPDATE STATE WITH YOUR SELECTED VALUE
     console.log("New Country is", this.value);
     draw(); // re-draw the graph based on this new selection
   });
@@ -118,14 +118,14 @@ function draw() {
     .call(yAxis.scale(yScale));
   
     // + DRAW LINE AND AREA
-  const areaFunc = svg
+  const areaFunc = d3
     .area()
     .x(d=>xScale(d.year))
     .y0(yScale(0))
     .y1(d=>yScale(d.gdp));
   
   const area = svg
-    .append("path.trend")
+    .selectAll("path.trend")
     .data([filteredData])
     .join(
       enter =>
@@ -141,7 +141,7 @@ function draw() {
         .transition() 
         .duration(1000)
         .attr("opacity", 1)
-        .attr("d", areaFunc(d))
+        .attr("d", d => areaFunc(d))
     );
 };
 
