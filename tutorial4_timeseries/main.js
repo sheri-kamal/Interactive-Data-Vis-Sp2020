@@ -141,7 +141,7 @@ function draw() {
         .transition() 
         .duration(1000)
         .attr("opacity", 1)
-        .attr("d", d => areaFunc(d))
+        .attr("d", areaFunc)
     );
 };
 
