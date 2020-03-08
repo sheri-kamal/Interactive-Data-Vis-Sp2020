@@ -94,7 +94,7 @@ function init() {
     .attr("y", "50%")
     .attr("dx", "-3em")
     .attr("writing-mode", "vertical-rl")
-    .text("GDP/Capita, Yearly Growth");
+    .text("GDP/Capita, % Yearly Growth");
 
   draw(); // calls the draw function
 };
