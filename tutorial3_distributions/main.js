@@ -73,7 +73,7 @@ function init() {
     .call(xAxis)
     .append("text")
     .attr("class", "axis-label")
-    .attr("Queens", "50%")
+    .attr("x", "50%")
     .attr("dy", "3em")
     .text("Water Quality");
 
