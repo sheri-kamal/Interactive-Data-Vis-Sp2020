@@ -6,10 +6,16 @@ body {
 .tooltip {
     display: block;
     height: fit-content;
-    background-color: white;
     opacity: 0.8;
     pointer-events: none;
-    padding: 5px;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.container {
+    text-align: center;
 }
   
 path.state {
